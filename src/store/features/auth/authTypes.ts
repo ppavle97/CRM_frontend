@@ -8,7 +8,7 @@ export interface User {
 }
 
 export interface UserLogin {
-  auth_token: string;
+  token: string;
 }
 
 export interface LoggedUser {

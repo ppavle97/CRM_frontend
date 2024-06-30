@@ -60,3 +60,55 @@ export const StyledModalHeading = styled("h3")({
   color: colors.gunmetal,
   marginTop: "0",
 });
+
+export const StyledModalForm = styled("form")({
+  width: "100%",
+  marginTop: calcRem(30),
+});
+
+export const StyledModalInlineInputContainer = styled("div")({
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 1fr)",
+  gap: calcRem(10),
+});
+
+export const StyledModalInput = styled("div")({
+  background: colors.paleGray,
+  border: `solid 1px ${colors.lightGray}`,
+  borderRadius: calcRem(5),
+  padding: `${calcRem(10)} 0px`,
+  margin: `${calcRem(10)} 0`,
+
+  "& p": {
+    color: colors.cadetGray,
+    fontSize: calcRem(12),
+    margin: `0 ${calcRem(10)}`,
+  },
+  "& input": {
+    color: colors.gunmetal,
+    fontSize: calcRem(15),
+    margin: `${calcRem(7)} ${calcRem(10)} 0`,
+    width: "90%",
+    backgroundColor: "transparent",
+    border: "none",
+    "&:focus": { outline: "none" },
+  },
+});
+export const StyledModalSubmit = styled("button")({
+  width: "100%",
+  height: calcRem(50),
+  border: "none",
+  borderRadius: calcRem(5),
+  backgroundColor: colors.lightCoral,
+  color: colors.white,
+  fontSize: calcRem(14),
+  fontWeight: "700",
+  marginTop: calcRem(20),
+  "&:hover": { cursor: "pointer" },
+});
+
+export const StyledError = styled("p")({
+  color: colors.red,
+  fontSize: calcRem(14),
+  textAlign: "center",
+});
