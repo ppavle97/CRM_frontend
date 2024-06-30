@@ -112,3 +112,35 @@ export const StyledError = styled("p")({
   fontSize: calcRem(14),
   textAlign: "center",
 });
+
+export const StyledModalSuccessBtn = styled("button")({
+  color: colors.white,
+  backgroundColor: colors.lightCoral,
+  border: "none",
+  width: "100%",
+  borderRadius: calcRem(5),
+  padding: `${calcRem(10)}`,
+  margin: `${calcRem(20)} auto 0`,
+  fontSize: calcRem(20),
+  "&:hover": {
+    cursor: "pointer",
+  },
+});
+export const StyledModalSuccessDescription = styled("p")({
+  color: colors.gunmetal,
+  fontSize: calcRem(18),
+  textAlign: "center",
+  width: "80%",
+  margin: `${calcRem(12)} auto`,
+});
+export const StyledModalSuccessHeading = styled("p")({
+  color: colors.lightCoral,
+  fontSize: calcRem(24),
+  textAlign: "center",
+  width: "80%",
+  margin: `${calcRem(6)} auto`,
+});
+export const StyledModalSuccessBtnContainer = styled("div")({
+  display: "flex",
+  gap: calcRem(15),
+});

@@ -16,7 +16,7 @@ export const signupUser = createAsyncThunk<
     try {
       const response = await axios.post<User>(`${API}/register`, signupData);
       if (response.status === 201) {
-        dispatch(setModal('login'));
+        dispatch(setModal("success_singup"));
         return response.data;
       } else {
         return rejectWithValue("Unexpected response status");
@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk<
     const response = await axios.post<UserLogin>(`${API}/login`, loginData);
     if (response.status === 200) {
       setCookie("jwtToken", response.data.token, 1);
-      dispatch(setModal(null));
+      dispatch(setModal("success_login"));
       return response.data;
     } else {
       return rejectWithValue("Unexpected response status");
