@@ -1,7 +1,13 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AsyncThunk, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setCookie } from "../../cookies";
-import { LoginData, SignupData, User, UserLogin } from "./authTypes";
+import { getCookie, setCookie } from "../../cookies";
+import {
+  LoggedUser,
+  LoginData,
+  SignupData,
+  User,
+  UserLogin,
+} from "./authTypes";
 import { setModal } from "../modal/modalSlice";
 
 const API = "http://localhost:5001/api";
@@ -49,3 +55,30 @@ export const loginUser = createAsyncThunk<
     );
   }
 });
+
+export const fetchCurrentUser = createAsyncThunk<
+  LoggedUser,
+  void,
+  { rejectValue: string }
+>("user/fetchCurrentUser", async (_, { rejectWithValue }) => {
+  try {
+    const token = getCookie("jwtToken");
+    const response = await axios.get<{ userData: LoggedUser }>(
+      `${API}/users/me`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    if (response.status === 200) {
+      return response.data.userData;
+    } else {
+      return rejectWithValue("Unexpected response status");
+    }
+  } catch (error: any) {
+    return rejectWithValue(
+      error.response ? error.response.data.message : error.message
+    );
+  }
+}) as AsyncThunk<LoggedUser, void, { rejectValue: string }>;

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User, UserState } from "./authTypes";
-import { signupUser, loginUser } from "./authActions";
+import { LoggedUser, User, UserState } from "./authTypes";
+import { signupUser, loginUser, fetchCurrentUser } from "./authActions";
 import { getCookie, removeCookie } from "../../cookies";
 
 const initialState: UserState = {
@@ -47,6 +47,24 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(loginUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload
+          ? String(action.payload)
+          : "Unknown error occurred";
+      })
+      .addCase(fetchCurrentUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(
+        fetchCurrentUser.fulfilled,
+        (state, action: PayloadAction<LoggedUser>) => {
+          state.loading = false;
+          state.user = action.payload;
+          state.isLoggedIn = true; 
+        }
+      )
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload
           ? String(action.payload)
