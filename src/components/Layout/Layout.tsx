@@ -1,3 +1,4 @@
+import { ModalContainer } from "../Modals";
 import {
   StyledHeader,
   StyledLayout,
@@ -12,6 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <p>CRM Brokerage Company</p>
       </StyledHeader>
       <StyledLayoutContent>{children}</StyledLayoutContent>
+      <ModalContainer />
     </StyledLayout>
   );
 };
