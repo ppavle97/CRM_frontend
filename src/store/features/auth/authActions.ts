@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setCookie, removeCookie } from "../../cookies";
+import { setCookie } from "../../cookies";
 import { LoginData, SignupData, User, UserLogin } from "./authTypes";
 import { setModal } from "../modal/modalSlice";
 
@@ -49,8 +49,3 @@ export const loginUser = createAsyncThunk<
     );
   }
 });
-
-export const logoutUser = () => {
-  removeCookie("jwtToken");
-  return { type: "auth/logout" };
-};
