@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { breakpointMax, calcRem, colors } from "../../theme";
 import { StyledUserItemProps } from "./types";
 
+const userItemHeight = calcRem(56);
+
 export const StyledUsers = styled("div")({
   width: "60%",
   marginTop: calcRem(20),
@@ -13,15 +15,16 @@ export const StyledUsers = styled("div")({
   [breakpointMax("sm")]: {
     width: "90%",
     padding: 0,
-    overflow:'hidden'
+    overflow: "hidden",
   },
+  height: `calc(${userItemHeight} * 10 + ${calcRem(20)})`,
 });
 
 export const StyledUserItem = styled("div")<StyledUserItemProps>(
   ({ active }) => [
     {
       width: "100%",
-      height: calcRem(56),
+      height: userItemHeight,
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
