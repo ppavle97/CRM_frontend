@@ -43,14 +43,14 @@ export const Pagination = ({
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        <img src={leftArrow} alt="" />
+        <img src={leftArrow} alt="left-arrow" />
       </PageButton>
       {renderPageNumbers()}
       <PageButton
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        <img src={rightArrow} alt="" />
+        <img src={rightArrow} alt="right-arrow" />
       </PageButton>
     </PaginationContainer>
   );
