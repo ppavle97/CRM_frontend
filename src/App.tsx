@@ -1,9 +1,9 @@
-function App() {
-  return (
-    <div>
-      <p>Hello from Silver Bell CRM</p>
-    </div>
-  );
-}
+import React from "react";
+import "./App.css";
+import AppRouter from "./router";
+
+const App: React.FC = () => {
+  return <AppRouter />;
+};
 
 export default App;
