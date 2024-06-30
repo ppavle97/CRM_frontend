@@ -1,22 +1,15 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { StyledUserItem, StyledUsers } from "./Users.styled";
-import { fetchUsers } from "../../store/features/user/userActions";
 import { User } from "../../store/features/user/userTypes";
 import { formatDate } from "./helpers";
+import { UsersProps } from "./types";
+import { useAppSelector } from "../../store/hooks";
 
-export const Users = () => {
-  const dispatch = useAppDispatch();
-  const users = useAppSelector((state) => state.user.users);
+export const Users = ({ users }: UsersProps) => {
   const user = useAppSelector((state) => state.auth.user);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
 
   return (
     <StyledUsers>
-      {users.map((item: User) => (
+      {users?.map((item: User) => (
         <StyledUserItem active={item.id === user?.id} key={item.id}>
           <p>{item.fullName}</p>
           <p>{item.email}</p>
