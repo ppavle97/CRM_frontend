@@ -1,4 +1,4 @@
-import { AuthControls, Layout, Profile } from "../../components";
+import { AuthControls, Layout, Profile, Users } from "../../components";
 import { useAppSelector } from "../../store/hooks";
 import { StyledHome } from "./Home.styled";
 
@@ -9,7 +9,8 @@ export const Home = () => {
     <Layout>
       <StyledHome>
         {isLoggedIn ? <Profile /> : <AuthControls />}
-        <p>Hello from Home</p>
+
+        {isLoggedIn && <Users />}
       </StyledHome>
     </Layout>
   );
