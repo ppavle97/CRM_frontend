@@ -4,5 +4,6 @@ export const colors = {
   mediumLightGray: "#A1A1A1",
   white: "#FFFFFF",
   teal: "#00D796",
-  softRed: "#E57373", 
+  softRed: "#E57373",
+  darkGray: "#848484",
 };
