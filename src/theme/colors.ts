@@ -1,9 +1,10 @@
 export const colors = {
-  black: "#000000",
+  white: "#ffffff", // White
+  lightCoral: "#EAA89F", // Primary Pink
+  cadetGray: "#949EA0", // Silver
+  lightGray: "#DFE5EA", // Light Silver
+  gunmetal: "#334144", // Black
+  red: "#E57373", // red
+  paleGray: "#F5F6F7",
   purple: "#766DD9",
-  mediumLightGray: "#A1A1A1",
-  white: "#FFFFFF",
-  teal: "#00D796",
-  softRed: "#E57373",
-  darkGray: "#848484",
 };

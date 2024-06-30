@@ -10,7 +10,7 @@ export const StyledNotFound = styled("div")({
   flexDirection: "column",
   "& p": {
     fontSize: calcRem(28),
-    color: colors.mediumLightGray,
+    color: colors.gunmetal,
     textAlign: "center",
     [breakpointMax("sm")]: {
       fontSize: calcRem(18),

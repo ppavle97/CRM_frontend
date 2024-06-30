@@ -23,7 +23,7 @@ export const StyledHeader = styled("div")({
   "& p": {
     fontSize: calcRem(32),
     fontWeight: 600,
-    color: colors.darkGray,
+    color: colors.gunmetal,
     [breakpointMax("md")]: {
       fontSize: calcRem(28),
     },

@@ -14,6 +14,7 @@ export const StyledAuth = styled("div")({
     border: "none",
     borderRadius: calcRem(10),
     color: colors.white,
+    backgroundColor: colors.cadetGray,
     [breakpointMax("lg")]: {
       width: calcRem(180),
       height: calcRem(45),
@@ -24,11 +25,5 @@ export const StyledAuth = styled("div")({
       fontSize: calcRem(16),
     },
     "&:hover": { cursor: "pointer" },
-    "&:nth-child(1)": {
-      backgroundColor: colors.teal,
-    },
-    "&:nth-child(2)": {
-      backgroundColor: colors.purple,
-    },
   },
 });
