@@ -10,21 +10,24 @@ export const signupUser = createAsyncThunk<
   User,
   SignupData,
   { rejectValue: string }
->("/register", async (signupData: SignupData, { rejectWithValue }) => {
-  try {
-    const response = await axios.post<User>(`${API}/register`, signupData);
-
-    if (response.status === 201) {
-      return response.data;
-    } else {
-      return rejectWithValue("Unexpected response status");
+>(
+  "/register",
+  async (signupData: SignupData, { rejectWithValue, dispatch }) => {
+    try {
+      const response = await axios.post<User>(`${API}/register`, signupData);
+      if (response.status === 201) {
+        dispatch(setModal('login'));
+        return response.data;
+      } else {
+        return rejectWithValue("Unexpected response status");
+      }
+    } catch (error: any) {
+      return rejectWithValue(
+        error.response ? error.response.data.message : error.message
+      );
     }
-  } catch (error: any) {
-    return rejectWithValue(
-      error.response ? error.response.data.error : error.message
-    );
   }
-});
+);
 
 export const loginUser = createAsyncThunk<
   UserLogin,
